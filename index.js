@@ -1,8 +1,11 @@
     const container =  document.querySelector('.container');
 
     const hoverHandler = (e) => {
-        const { target: button } = e;//
-        button.style.top = `${Math.floor(Math.random() * window.innerHeight)}px`;
-        button.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
+        const { target: button } = e;//определяем кнопку
+        button.style.top = `${Math.floor(Math.random() * (window.innerHeight - button.clientHeight))}px`;//назначаем рондомное положение кнопки
+        button.style.left = `${Math.floor(Math.random() * (window.innerWidth - button.clientWidth))}px`;
+        console.log(button.clientHeight);//получаем размер кнопки через ее свойство
+        console.log(button.clientWidth);
+
     };
     container.addEventListener("mouseover", hoverHandler);
